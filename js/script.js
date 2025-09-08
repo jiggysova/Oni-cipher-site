@@ -1,4 +1,3 @@
-// Typewriter effect
 const text = "Websites That Command Respect."
 let i = 0;
 

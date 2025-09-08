@@ -44,6 +44,7 @@ font-weight: bold;}
     text-align: center;
     background: linear-gradient(135deg, #0d0d0d 40%, #1a1a1a 100%);
     padding: 2rem;
+}
 
 .hero h1 {
 font-size: 2.5rem;
@@ -113,5 +114,4 @@ footer {
     font-size: 0.9rem;}
 
 html {
-    scroll-behavior: smooth;
-}
+    scroll-behavior: smooth;}

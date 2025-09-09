@@ -195,6 +195,37 @@ section {
 }
 @media (max-width: 900px) { .about-inner { grid-template-columns: 1fr; } }
 
+.testimonials { padding: 4rem 2rem; text-align:center; }
+.testimonials h2 { color:#e60000; margin-bottom:2rem; font-size:2rem; }
+.testi-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto; }
+.testi-card { background:#1a1a1a; border:1px solid #242424; border-radius:10px; padding:1.5rem; text-align:left; }
+.testi-card blockquote { color:#ddd; margin:0 0 .75rem; line-height:1.7; }
+.testi-card figcaption { color:#999; font-size:.95rem; }
+
+.cta-stripe {
+  padding: 3rem 2rem; text-align:center;
+  background: linear-gradient(135deg, #151515, #0f0f0f);
+  border-top:1px solid #202020; border-bottom:1px solid #202020;
+}
+.cta-stripe h3 { margin:0 0 .5rem; font-size:1.8rem; color:#fff; }
+.cta-stripe p { margin:0 0 1.25rem; color:#bbb; }
+.btn.btn-lg { padding:.8rem 1.2rem; font-weight:800; display:inline-block; }
+
+/* Buttons: hover + focus */
+.btn { transition: transform .2s, box-shadow .2s, background .2s; }
+.btn:hover { transform: translateY(-2px); box-shadow:0 10px 18px rgba(230,0,0,.25); }
+.btn:focus { outline:2px solid #e60000; outline-offset:2px; }
+
+/* Section spacing consistency */
+section { padding: 4rem 2rem; }
+
+/* Navbar underline on hover */
+.nav-links a { position:relative; }
+.nav-links a::after {
+  content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0;
+  background:#e60000; transition: width .2s;
+}
+.nav-links a:hover::after { width:100%; }
 
 
 footer {

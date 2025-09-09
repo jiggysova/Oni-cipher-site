@@ -316,3 +316,30 @@ html {
   .navbar.open .nav-toggle .bar:nth-child(2) { opacity: 0; }
   .navbar.open .nav-toggle .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
+
+/* Focus rings for keyboard users */
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid #e60000;
+  outline-offset: 2px;
+}
+
+/* Prevent layout jump if images missing */
+.portfolio-card img { display:block; width:100%; height:auto; background:#0f0f0f; }
+
+/* Smooth hover on nav */
+.nav-links a { transition: color .2s; }
+.nav-links a:hover { color:#e6e6e6; }
+
+/* Consistent section max width */
+section > .container, .about-inner, .testi-grid, .portfolio-grid, .service-grid {
+  max-width: 1100px; margin: 0 auto;
+}
+
+/* Portfolio fallback (so empty images look clean) */
+.portfolio-card img {
+  width: 100%;
+  height: 180px;          /* fixed height so grid looks even */
+  object-fit: cover;
+  background: #1a1a1a;    /* fallback color */
+  display: block;
+}

@@ -15,6 +15,11 @@ header {
     justify-content: space-between;
     align-items: center;}
 
+.navbar .btn {
+  margin-left: 2rem;
+}
+
+
 .navbar .logo {
 font-size: 1.5rem;
 color: #e60000;
@@ -30,11 +35,20 @@ font-weight: bold;}
     text-decoration: none;}
 
 .btn {
-   background: #e60000;
-    color:#fff;
-    padding: 0.5rem;
-    border-radius: 4px;
-    text-decoration: none;}
+  background: #e60000;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: #ff1a1a;
+  transform: translateY(-2px);
+}
+
 
 .hero {
     min-height: 90vh;
@@ -236,3 +250,69 @@ footer {
 
 html {
     scroll-behavior: smooth;}
+
+    /* ---------- Mobile Nav Base ---------- */
+.nav-toggle {
+  display: none;             /* hidden on desktop */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: .4rem;
+  margin-left: auto;
+}
+
+.nav-toggle .bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  margin: 5px 0;
+  transition: transform .2s, opacity .2s;
+}
+
+/* Keep desktop layout as-is */
+.nav-links { list-style: none; display: flex; gap: 1.5rem; }
+.nav-cta { margin-left: 2rem; }
+
+/* ---------- Mobile layout ---------- */
+@media (max-width: 900px) {
+  .nav-toggle { display: inline-block; }
+
+  /* Start hidden on mobile */
+  .nav-links {
+    position: absolute;
+    top: 64px;                /* height of header area */
+    left: 0; right: 0;
+    background: #0f0f0f;
+    border-top: 1px solid #1f1f1f;
+    display: grid;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  /* CTA goes into the menu row for mobile or stays to the right */
+  .nav-cta { display: none; } /* simpler: hide top-right CTA on mobile */
+
+  /* When nav is open */
+  .navbar.open .nav-links {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Make links stack vertically */
+  .nav-links li a {
+    display: block;
+    padding: .5rem 0;
+  }
+
+  /* Animate hamburger to "X" */
+  .navbar.open .nav-toggle .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .navbar.open .nav-toggle .bar:nth-child(2) { opacity: 0; }
+  .navbar.open .nav-toggle .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}

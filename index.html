@@ -12,19 +12,29 @@
 
 <body>
   <!-- Navigation -->
-  <header>
-    <nav class="navbar" aria-label="Primary">
-      <div class="logo">Oni Cipher</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="#contact" class="btn">Work With Us</a>
-    </nav>
-  </header>
+ <header>
+  <nav class="navbar" aria-label="Primary">
+    <div class="logo">Oni Cipher</div>
+
+    <!-- Mobile menu button -->
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="btn nav-cta">Work With Us</a>
+  </nav>
+</header>
+
 
   <!-- Hero Section -->
   <section id="home" class="hero">
@@ -191,6 +201,34 @@
     //   typeWriter();
     // });
   </script>
+
+<script>
+  const nav = document.querySelector('.navbar');
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('primary-nav');
+
+  function closeMenu() {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Close menu when a link is clicked (mobile)
+  links.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') closeMenu();
+  });
+
+  // ESC to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>
+
+
   <script src="js/script.js"></script>
 </body>
 </html>
